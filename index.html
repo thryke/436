@@ -1,0 +1,145 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+<script src="app.js"></script>
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    
+    <!-- BootStrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Flight Information Tool</title>
+    <style>
+      .header {
+        text-align: center;
+        padding: 20px;
+      }
+
+      .URL {
+        color: green;
+      }
+      .Results {
+        width: 500px;
+        height: 1100px;
+        overflow: scroll;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1 class="header">Flight Information Tool</h1>
+    </header>
+    <!-- SearchBar and Search Button -->
+    <div class="container">
+      <div class="row justify-content-md-center">
+        <div class="col col-lg-6">
+            <div class="input-group mb-3">
+                <input type="text" class="form-control" placeholder="Airport to search" id="Search-Bar">
+              
+                <!-- Allows user to hit enter to start the program -->
+                <script>
+                  var input = document.getElementById("Search-Bar");
+                  input.addEventListener("keyup", function(event) {
+                    if(event.keyCode == 13) {
+                      console.log("enter button hit");
+                      event.preventDefault();
+                      document.getElementById("button-addon2").click();
+                    }
+                  });
+                </script>
+              
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="clearTable(); processRequest(document.getElementById('Search-Bar').value);">Search</button>
+                </div>
+              </div>
+        </div>
+      </div>
+    </div>
+    <div>
+      <br>
+    </div>
+    <!-- Box containing the results of the search -->
+    <div class="col-md-10 offset-md-1 " >
+      <div>
+      <table id="showData" class="table table-striped" style="background-color: #dedede; table-layout: fixed;">
+        <thead style="border-bottom: 10px">
+          <tr>
+            <th class="font-weight-bold" style="color:black;">
+              <span> Flight Number </span>
+              <span class="filter-control">
+                <input type="search" id="search-num" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+    
+            <th class="font-weight-bold" style="color:black;">
+              <span> Airline </span>
+              <span class="filter-control">
+                <input type="search" id="search-email" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+    
+            <th class="font-weight-bold" style="color:black;">
+              <span> Departure Airport </span>
+              <span class="filter-control">
+                <input type="search" id="search-address" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+            
+            <th class="font-weight-bold" style="color:black;">
+              <span> Status </span>
+              <span class="filter-control">
+                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+    
+            <th class="font-weight-bold" style="color:black;">
+              <span> Scheduled Arrival </span>
+              <span class="filter-control">
+                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+    
+            <th class="font-weight-bold" style="color:black;">
+              <span> Estimated Arrival </span>
+              <span class="filter-control">
+                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+
+            <th class="font-weight-bold" style="color:black;">
+              <span> Gate </span>
+              <span class="filter-control">
+                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+    
+            <th class="font-weight-bold" style="color:black;">
+              <span> Baggage </span>
+              <span class="filter-control">
+                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+              </span>
+            </th>
+          </tr>
+        </thead>
+    
+        <tbody style="color:black">
+        </tbody>
+      </table>
+      </div>
+    </div>
+    <div class="modal" id="modal1">
+      <div class="modal-dialog">
+        <header class="modal-header">
+        </header>
+        <section class="col-12 modal-content text-center">
+        </section>
+        <footer class="modal-footer"></footer>
+      </div>
+    </div>
+  </body>
+</html>
