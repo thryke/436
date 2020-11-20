@@ -64,77 +64,78 @@
       <br>
     </div>
     <!-- Box containing the results of the search -->
-    <div class="col-md-10 offset-md-1 " >
+    <div class="col-md-10 offset-md-1" >
       <div>
-      <table id="showData" class="table table-striped" style="background-color: #dedede; table-layout: fixed;">
-        <thead style="border-bottom: 10px">
-          <tr>
-            <th class="font-weight-bold" style="color:black;">
-              <span> Flight Number </span>
-              <span class="filter-control">
-                <input type="search" id="search-num" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-    
-            <th class="font-weight-bold" style="color:black;">
-              <span> Airline </span>
-              <span class="filter-control">
-                <input type="search" id="search-email" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-    
-            <th class="font-weight-bold" style="color:black;">
-              <span> Departure Airport </span>
-              <span class="filter-control">
-                <input type="search" id="search-address" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-            
-            <th class="font-weight-bold" style="color:black;">
-              <span> Status </span>
-              <span class="filter-control">
-                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-    
-            <th class="font-weight-bold" style="color:black;">
-              <span> Scheduled Arrival </span>
-              <span class="filter-control">
-                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-    
-            <th class="font-weight-bold" style="color:black;">
-              <span> Estimated Arrival </span>
-              <span class="filter-control">
-                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
+        <table id="showData" class="table table-striped table-responsive" style="background-color: #dedede; table-layout: fixed;">
+          <thead style="border-bottom: 10px">
+            <tr>
+              <th class="font-weight-bold" style="color:black;">
+                <span> Flight Number </span>
+                <span class="filter-control">
+                  <input type="search" id="search-num" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+      
+              <th class="font-weight-bold" style="color:black;">
+                <span> Airline </span>
+                <span class="filter-control">
+                  <input type="search" id="search-email" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+      
+              <th class="font-weight-bold" style="color:black;">
+                <span> Departure Airport </span>
+                <span class="filter-control">
+                  <input type="search" id="search-address" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+              
+              <th class="font-weight-bold" style="color:black;">
+                <span> Status </span>
+                <span class="filter-control">
+                  <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+      
+              <th class="font-weight-bold" style="color:black;">
+                <span> Scheduled Arrival </span>
+                <span class="filter-control">
+                  <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+      
+              <th class="font-weight-bold" style="color:black;">
+                <span> Estimated Arrival </span>
+                <span class="filter-control">
+                  <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
 
-            <th class="font-weight-bold" style="color:black;">
-              <span> Gate </span>
-              <span class="filter-control">
-                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-    
-            <th class="font-weight-bold" style="color:black;">
-              <span> Baggage </span>
-              <span class="filter-control">
-                <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
-              </span>
-            </th>
-          </tr>
-        </thead>
-    
-        <tbody style="color:black">
-        </tbody>
-      </table>
+              <th class="font-weight-bold" style="color:black;">
+                <span> Gate </span>
+                <span class="filter-control">
+                  <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+      
+              <th class="font-weight-bold" style="color:black;">
+                <span> Baggage </span>
+                <span class="filter-control">
+                  <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                </span>
+              </th>
+            </tr>
+          </thead>
+      
+          <tbody style="color:black">
+          </tbody>
+        </table>
       </div>
     </div>
     <div class="modal" id="modal1">
       <div class="modal-dialog">
         <header class="modal-header">
+          <img class="img-responsive" style="margin:0 auto;" src="exampleflight.PNG" alt="Map showing current location of this flight.">
         </header>
         <section class="col-12 modal-content text-center">
         </section>

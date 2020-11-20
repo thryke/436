@@ -40,10 +40,19 @@ function updateTable(d){
     var airline = row.insertCell(0);
     var flight_num = row.insertCell(0);
     
+    estimated1 = f.arrival.estimated;
+    estimatedSplit = estimated1.split("T");
+    estimatedSplit2 = estimatedSplit[1].split(":00+00");
+    estimatedFinal = estimatedSplit2[0];
+    scheduled1 = f.arrival.scheduled;
+    scheduledSplit = scheduled1.split("T");
+    scheduledSplit2 = scheduledSplit[1].split(":00+00");
+    scheduledFinal = scheduledSplit2[0];
+
     baggage.innerHTML = f.arrival.baggage;
     gate.innerHTML = f.arrival.gate;
-    estimated.innerHTML = f.arrival.estimated;
-    scheduled.innerHTML = f.arrival.scheduled;
+    estimated.innerHTML = estimatedFinal;
+    scheduled.innerHTML = scheduledFinal;
     status.innerHTML = f.flight_status;
     departure_airport.innerHTML = f.departure.airport;
     airline.innerHTML = f.airline.name;
