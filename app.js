@@ -7,14 +7,17 @@ var airport = document.getElementsByName("textbox1").value;
 var current_request;
 var flightNum;
 var temp_num;
+var flightData;
+
 function processRequest(airport) {
     fetch(base_url + '&access_key=' + key + "&arr_iata=" + airport)
         .then(function (resp) { return resp.json() }) // Convert data to json
         .then(function (data) {
             //console.log(data.data[1].flight_status);
-            updateTable(data);
+            flightData = data
+            updateTable(data, -1);
             current_request = data.data;
-            console.log(current_request);
+            console.log('test', current_request);
             //appendData(data);
             //displayResults(data);
             // getItem(data);
@@ -22,12 +25,17 @@ function processRequest(airport) {
         .catch(function () {
             // catch any errors
           });
+}
+
+function updateTable(d, numFilter){
+  var flights = d.data;
+
+  if (numFilter !== -1) {
+    filterStr = numFilter+'';
+    flights = flights.filter(flight => (flight.flight.number+'').indexOf(filterStr) > -1)
   }
 
-function updateTable(d){
-  var flights = d.data;
   var table = document.getElementById("showData");
-
   for (var i=0; i<flights.length; i++) {
     var row = table.insertRow(1);
     var f = flights[i];
@@ -39,7 +47,7 @@ function updateTable(d){
     var departure_airport = row.insertCell(0);
     var airline = row.insertCell(0);
     var flight_num = row.insertCell(0);
-    
+
     estimated1 = f.arrival.estimated;
     estimatedSplit = estimated1.split("T");
     estimatedSplit2 = estimatedSplit[1].split(":00+00");
@@ -59,7 +67,7 @@ function updateTable(d){
     temp_num = f.flight.number;
     flight_num.innerHTML=  '<a href="#" onclick="setFlightNum(temp_num)" value="f.flight.num"">'+f.flight.number+'</a>';
   }
-} 
+}
 
 function clearTable(){
   var table = document.getElementById("showData");
@@ -102,5 +110,10 @@ function setFlightNum(fn){
       $('#modal1').find('.modal-content').append('<br>');
     }
   }
-  
+}
+
+function filterData(event) {
+  // console.log('event', event.target.id, event.currentTarget.value);
+  clearTable();
+  updateTable(flightData, event.target.value);
 }

@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
-    
+
     <!-- BootStrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <title>Flight Information Tool</title>
@@ -40,7 +40,7 @@
         <div class="col col-lg-6">
             <div class="input-group mb-3">
                 <input type="text" class="form-control" placeholder="Airport to search" id="Search-Bar">
-              
+
                 <!-- Allows user to hit enter to start the program -->
                 <script>
                   var input = document.getElementById("Search-Bar");
@@ -52,7 +52,7 @@
                     }
                   });
                 </script>
-              
+
                 <div class="input-group-append">
                   <button class="btn btn-outline-secondary" type="button" id="button-addon2" onclick="clearTable(); processRequest(document.getElementById('Search-Bar').value);">Search</button>
                 </div>
@@ -72,38 +72,38 @@
               <th class="font-weight-bold" style="color:black;">
                 <span> Flight Number </span>
                 <span class="filter-control">
-                  <input type="search" id="search-num" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
+                  <input type="search" id="search-num" name="searchNum" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="" onchange="filterData(event)">
                 </span>
               </th>
-      
+
               <th class="font-weight-bold" style="color:black;">
                 <span> Airline </span>
                 <span class="filter-control">
                   <input type="search" id="search-email" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
                 </span>
               </th>
-      
+
               <th class="font-weight-bold" style="color:black;">
                 <span> Departure Airport </span>
                 <span class="filter-control">
                   <input type="search" id="search-address" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
                 </span>
               </th>
-              
+
               <th class="font-weight-bold" style="color:black;">
                 <span> Status </span>
                 <span class="filter-control">
                   <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
                 </span>
               </th>
-      
+
               <th class="font-weight-bold" style="color:black;">
                 <span> Scheduled Arrival </span>
                 <span class="filter-control">
                   <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
                 </span>
               </th>
-      
+
               <th class="font-weight-bold" style="color:black;">
                 <span> Estimated Arrival </span>
                 <span class="filter-control">
@@ -117,7 +117,7 @@
                   <input type="search" id="search-classyear" class="form-control search-input" style="height:30px; background-color:#cccccc; color:black" placeholder="" value="">
                 </span>
               </th>
-      
+
               <th class="font-weight-bold" style="color:black;">
                 <span> Baggage </span>
                 <span class="filter-control">
@@ -126,7 +126,7 @@
               </th>
             </tr>
           </thead>
-      
+
           <tbody style="color:black">
           </tbody>
         </table>
